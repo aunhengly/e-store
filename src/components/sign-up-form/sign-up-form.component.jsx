@@ -9,7 +9,7 @@ import {
 
 import "./sign-up-form.styles.scss";
 
-const defaultFormField = {
+const defaultFormFields = {
   displayName: "",
   email: "",
   password: "",
@@ -17,13 +17,11 @@ const defaultFormField = {
 };
 
 const SignUpForm = () => {
-  const [formField, setFormField] = useState(defaultFormField);
-  const { displayName, email, password, confirmPassword } = formField;
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
 
-  console.log(formField);
-
-  const resetFormField = () => {
-    setFormField(defaultFormField);
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
   };
 
   const handleSubmit = async (event) => {
@@ -37,7 +35,7 @@ const SignUpForm = () => {
         password
       );
       await createUserDocumentFromAuth(user, { displayName });
-      resetFormField();
+      resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot creat user, emalalready in use");
@@ -49,7 +47,7 @@ const SignUpForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormField({ ...formField, [name]: value });
+    setFormFields({ ...formFields, [name]: value });
   };
 
   return (
