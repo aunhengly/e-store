@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-
 import { useNavigate } from "react-router-dom";
 
 import Buttons from "../button/button.component";
@@ -10,7 +9,7 @@ import {
   CardDropdownContainer,
   EmptyMessage,
   CartItems,
-} from "./cart-dropdown.styles.jsx";
+} from "./cart-dropdown.styles";
 
 const CartDropdown = () => {
   const cartItems = useSelector(selectCartItems);
