@@ -5,4 +5,11 @@ export const AuthenticationContainer = styled.div`
   width: 900px;
   justify-content: space-between;
   margin: 30px auto;
+
+  @media screen and (max-width: 800px) {
+    display: grid;
+    width: 60%;
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+  }
 `;
